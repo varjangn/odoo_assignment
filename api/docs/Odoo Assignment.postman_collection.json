@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "6b9422e6-e1e9-4103-8609-17bdffd8f1e7",
+		"name": "Odoo Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4246890"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"user1\",\n    \"password\": \"user1@1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/auth/token/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Rooms",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE5MzExNDEwLCJpYXQiOjE3MTkzMTExMTAsImp0aSI6Ijk0ZjM4ZTE5NmUwZDRhZGU4M2JiMGE2YjcxZTUwNTliIiwidXNlcl9pZCI6Mn0.ARu8G5uHzfMMwAiArh9sT9vbMeqPCk-egGf4fX2NXIc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/room/rooms/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"room",
+						"rooms",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Room Detail",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE5MzExNDEwLCJpYXQiOjE3MTkzMTExMTAsImp0aSI6Ijk0ZjM4ZTE5NmUwZDRhZGU4M2JiMGE2YjcxZTUwNTliIiwidXNlcl9pZCI6Mn0.ARu8G5uHzfMMwAiArh9sT9vbMeqPCk-egGf4fX2NXIc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/room/rooms/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"room",
+						"rooms",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Booking",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE5MzExNDEwLCJpYXQiOjE3MTkzMTExMTAsImp0aSI6Ijk0ZjM4ZTE5NmUwZDRhZGU4M2JiMGE2YjcxZTUwNTliIiwidXNlcl9pZCI6Mn0.ARu8G5uHzfMMwAiArh9sT9vbMeqPCk-egGf4fX2NXIc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"room_id\":1,\n  \"date\": \"2024-06-07\",\n  \"timezone\": \"Asia/Kolkata\",\n  \"slots\": [\n    \"12:30~13:00\"\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/room/add-booking/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"room",
+						"add-booking",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
