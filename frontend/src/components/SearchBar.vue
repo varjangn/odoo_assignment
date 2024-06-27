@@ -3,7 +3,7 @@
       <input
         type="text"
         v-model="searchText"
-        placeholder="Search for a meeting room"
+        placeholder="Search by room name"
         @keyup.enter="onSearch"
       />
       <button @click="onSearch">Search</button>
@@ -53,9 +53,5 @@
     color: #fff;
     cursor: pointer;
     outline: none;
-  }
-
-  button:hover {
-    background-color: #0056b3;
   }
   </style>

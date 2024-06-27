@@ -19,8 +19,3 @@ npm run dev
 ```sh
 npm run build
 ```
-
-## Note
-
-Please check postman docs in `api/docs/Odoo Assignment.postman_collection.json`. Room booking API is not integrated yet.
-

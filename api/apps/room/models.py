@@ -40,7 +40,7 @@ class Room(TimestampedModel):
 
 class Booking(models.Model):
     ROOM_BOOKING_START_TIME = time(10, 0)  # 10:00 AM
-    ROOM_BOOKING_END_TIME = time(19, 0)    # 7:00 PM
+    ROOM_BOOKING_END_TIME = time(21, 0)    # 7:00 PM TODO
     SLOT_DURATION = timedelta(minutes=30)
     SLOT_CHOICES = generate_time_slots(ROOM_BOOKING_START_TIME, ROOM_BOOKING_END_TIME, SLOT_DURATION)
 

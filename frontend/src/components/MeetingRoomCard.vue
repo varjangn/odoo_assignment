@@ -5,18 +5,33 @@
         <p class="room-availability">{{ roomAvailability }}</p>
       </div>
       <div class="meeting-room-details">
-        <div class="room-tags">
-          <span v-for="(tag, index) in tags" :key="tag.id" class="tag-label">{{ tag.name }}</span>
+        <div class="room-tags" v-if="tags.length">
+          <Tag
+            v-for="tag in tags"
+            :tagId="tag.id"
+            :tagName="tag.name"
+            :roomId="roomId"
+            @remove_tag_by_id="removeTagById"
+          />
         </div>
-        <p class="seat-capacity">Seats: {{ seatCapacity }}</p>
+        <p v-else>No tags</p>
+        <p class="seat-capacity">{{ seatCapacity }} seat capacity</p>
       </div>
     </div>
   </template>
 
   <script>
+  import Tag from '../components/Tag.vue';
   export default {
     name: 'MeetingRoomCard',
+    components: {
+      Tag,
+    },
     props: {
+      roomId: {
+        type: Number,
+        required: true,
+      },
       roomName: {
         type: String,
         required: true
@@ -30,8 +45,20 @@
         required: true
       },
       seatCapacity: {
-        type: String,
+        type: Number,
         required: true
+      }
+    },
+    methods:{
+      removeTagById(payload) {
+        for (let i = 0; i < this.tags.length; i++) {
+          let tag = this.tags[i]
+          if (tag.id === payload) {
+            this.tags.splice(i, 1);
+            this.$emit('remove_tag_by_id', i);
+            break
+          }
+        }
       }
     }
   }
@@ -55,6 +82,7 @@
 
   .room-name {
     margin: 0;
+    cursor: pointer;
     font-size: 1.5em;
   }
 
@@ -84,5 +112,6 @@
 
   .seat-capacity {
     margin: 0;
+    margin-top: 10px;
   }
   </style>
