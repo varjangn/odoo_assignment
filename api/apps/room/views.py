@@ -12,8 +12,8 @@ class RoomListView(ListAPIView):
     queryset = Room.objects.all().order_by()
     serializer_class = RoomSerializer
     filter_backends = [filters.SearchFilter]
-    # authentication_classes = (JWTAuthentication,)
-    # permission_classes = (IsAuthenticated,)
+    authentication_classes = (JWTAuthentication,)
+    permission_classes = (IsAuthenticated,)
     search_fields = ['name', 'tags__name']
 
 
